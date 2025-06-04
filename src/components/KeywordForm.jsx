@@ -2,26 +2,16 @@ import React from 'react';
 import imgTalking from '../assets/talking.png';
 import imgTalking2 from '../assets/talking-2.png';
 
-export default function KeywordForm({ submitKeywords }) {
+export default function KeywordForm({ keywords, addKeyword, submitKeywords }) {
 
-  const [keywords, setKeywords] = React.useState([]);
   const [inputValue, setInputValue] = React.useState("");
 
   function handleInputChange(event) {
     setInputValue(event.target.value);
   }
 
-  function addKeyword(formData) {
-    const newKeyword = formData.get("keyword").trim();
-
-    if (!newKeyword) {
-      alert('Please enter a valid keyword.');
-      return;
-    }
-
-    console.log(`Keyword added: ${newKeyword}`);
-
-    setKeywords(prev => [...prev, newKeyword]);
+  function handleKeywordSubmit(formData) {
+    addKeyword(formData);
     setInputValue(""); // Clear the input after adding
   }
 
@@ -31,7 +21,7 @@ export default function KeywordForm({ submitKeywords }) {
         First things first.<br />
         Tell me some keywords!
       </h1>
-      <form action={addKeyword} className="add-keyword-form">
+      <form action={handleKeywordSubmit} className="add-keyword-form">
         <input
           type="text"
           name="keyword"
