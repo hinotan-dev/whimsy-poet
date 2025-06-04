@@ -1,0 +1,112 @@
+/* Start Screen */
+.slideshow {
+  position: relative;
+  width: 270px;  /* adjust to your image size */
+  height: 270px;
+  margin: 40px auto;
+  perspective: 1000px;
+}
+
+.slideshow img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  opacity: 0;
+  animation: flipFade 12s infinite ease-in-out;
+}
+
+.slideshow img:nth-child(1) {
+  animation-delay: 0s;
+}
+.slideshow img:nth-child(2) {
+  animation-delay: 3s;
+}
+.slideshow img:nth-child(3) {
+  animation-delay: 6s;
+}
+.slideshow img:nth-child(4) {
+  animation-delay: 9s;
+}
+
+@keyframes flipFade {
+  0%   { opacity: 0; transform: rotateY(180deg); }
+  8%   { opacity: 1; transform: rotateY(0deg); }
+  25%  { opacity: 1; transform: rotateY(0deg); }
+  33%  { opacity: 0; transform: rotateY(180deg); }
+  100% { opacity: 0; transform: rotateY(180deg); }
+}
+
+/* Keyword Form */
+.talking-creature {
+  width: 370px;
+}
+
+.add-keyword-form {
+  position: relative;
+  width: 530px;
+  margin: 0 auto;
+}
+.add-keyword-form input {
+  padding-right: 90px;
+  color: var(--blue);
+}
+.add-keyword-form button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 90px;
+  height: 90px;
+  font-size: 8rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.add-keyword-form button span {
+  position: relative;
+  top: 6px;
+}
+
+.keywords-list {
+  margin-block: 20px;
+}
+.keywords-list .keyword {
+  font-size: 1.5rem; /* 24px */ 
+  background-color: var(--blue);
+  color: var(--cream);
+  border-radius: 1000px;
+  padding: 5px 40px 5px 15px;
+  margin: 0 5px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.25s ease-in-out;
+}
+
+.keywords-list .remove-keyword {
+  cursor: pointer;
+  font-family: "Kirang Haerang", system-ui;
+  font-size: 3rem;
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  color: var(--yellow);
+}
+
+.button-make-poem {
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+}
+
+/* Thinking Screen */
+.thinking-screen .keywords-list .keyword {
+  padding: 5px 15px;
+}
+
+.thinking-screen .hero {
+  width: 270px;;
+}
