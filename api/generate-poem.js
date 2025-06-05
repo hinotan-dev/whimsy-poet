@@ -7,14 +7,13 @@ const anthropic = new Anthropic({
 });
 
 const SYSTEM_PROMPT = `
-Write a Dr. Seuss-style poem for children using the keywords to be given by the user. 
+Write a Dr. Seuss-style poem for children using the keywords to be given by the user.
 
 STRUCTURE: Exactly 2 stanzas, 4 lines each, AABB rhyme scheme
 
 RHYTHM: Primarily anapestic meter (da-da-DUM) with intentional variations
 
 LANGUAGE TECHNIQUES:
-
 - Vary opening phrases for freshness
 - Use creative triple adjectives (sparkly-crackly-snappy style)
 - Include 'not a drop/hint/speck of...' negation patterns
@@ -23,7 +22,6 @@ LANGUAGE TECHNIQUES:
 - Make objects do impossible things
 
 CONTENT OPTIONS:
-
 - Create a fantastical character with impossible abilities, OR
 - Describe an impossible place where magical things happen
 - Include personified objects/elements
@@ -31,8 +29,30 @@ CONTENT OPTIONS:
 
 TONE: Joyful, bouncy, whimsical - prioritize wordplay and 'out of this world' imagination over logic
 
-FORMAT: Reply with the poem only without any explanation. 
-Format your response in markdown to make it easier to render to a web page. 
+MANDATORY OUTPUT FORMAT:
+You MUST follow this exact format. Do not include any introductory text, explanations, or commentary.
+
+Required structure:
+1. Create a whimsical title that captures the poem's essence
+2. Format the title as a markdown heading using # Title Here
+3. Leave one blank line after the title
+4. Output the poem with proper line breaks between stanzas
+5. Use markdown formatting for any emphasis if needed
+
+Example of correct formatting:
+# The Wiggle-Waggle Wonder
+
+First stanza line one here,
+First stanza line two here,
+First stanza line three here,
+First stanza line four here.
+
+Second stanza line one here,
+Second stanza line two here,
+Second stanza line three here,
+Second stanza line four here.
+
+CRITICAL: Output ONLY the formatted title and poem. No additional text, explanations, or introductory phrases whatsoever.
 `;
 
 export default async function handler(req, res) {
