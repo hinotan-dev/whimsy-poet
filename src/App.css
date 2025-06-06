@@ -101,6 +101,12 @@
   top: 6px;
 }
 
+.add-keyword-form button:disabled {
+  background-color: var(--cream);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 .keywords-list {
   margin-block: 20px;
 }
@@ -190,6 +196,9 @@
 .book-cover.green2 {
   background-image: url(./assets/book-green-2.png);
 }
+.book-cover.empty {
+  background-image: url(./assets/book-grey.png);
+}
 
 
 .book-cover span {
@@ -210,8 +219,85 @@ button.love {
   background-size: 40px;
   padding: 8px 30px 8px 70px;
 }
+button.love.saved {
+  background-color: transparent;
+  border: none;
+  cursor: default;
+  box-shadow: none;
+  transform: none;
+}
 button.retry {
   background: var(--cream) url(./assets/icon-sad.png) no-repeat 15px center;
   background-size: 40px;
   padding: 8px 30px 8px 70px;
+}
+button.books {
+  background: var(--cream) url(./assets/icon-books.png) no-repeat 15px center;
+  background-size: 46px;
+  padding: 8px 30px 8px 70px;
+}
+button.edit {
+  background: var(--yellow) url(./assets/icon-arrow-left.png) no-repeat 15px center;
+  background-size: 44px;
+  padding: 8px 30px 8px 70px;
+}
+button.delete {
+  background: var(--cream) url(./assets/icon-trash.png) no-repeat 15px center;
+  background-size: 44px;
+  padding: 8px 30px 8px 70px;
+}
+
+/* Library Screen */
+
+.poems-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  .poems-list {
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+  .poems-list {
+    
+  }
+}
+
+
+.poem-item {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 20px;
+}
+.poem-item .book-cover {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.poem-item .book-cover:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3))
+}
+.poem-item .book-cover span {
+  font-size: 5rem; /* 80px */
+  position: relative;
+  bottom: 14px;
+  left: 8px;
+}
+
+.poem-item .poem-info {
+  flex-grow: 1;
+  text-align: left;
+}
+.poem-item .poem-info .title{
+  font-weight: 800;
+  line-height: 1.1;
 }

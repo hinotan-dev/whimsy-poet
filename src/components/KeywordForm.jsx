@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import imgTalking from '../assets/talking.png';
 import imgTalking2 from '../assets/talking-2.png';
 
-export default function KeywordForm({ keywords, addKeyword, setKeywords, submitKeywords }) {
+export default function KeywordForm({ keywords, addKeyword, setKeywords, submitKeywords, status }) {
 
   const [inputValue, setInputValue] = React.useState("");
 
@@ -19,10 +19,18 @@ export default function KeywordForm({ keywords, addKeyword, setKeywords, submitK
 
   return (
     <div className="keyword-form-screen">
-      <h1>
-        First things first.<br />
-        Tell me some keywords!
-      </h1>
+      {status === "new" ? (
+        <h1>
+          First things first.<br />
+          Tell me some keywords!
+        </h1>
+      ) : status === "repopulated" ? (
+        <h1>
+          There you go!<br />
+          Tweak the keywords and try again.
+        </h1>
+      ) : null}
+      
       <form action={handleKeywordSubmit} className="add-keyword-form">
         <input
           type="text"

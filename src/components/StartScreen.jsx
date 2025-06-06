@@ -19,7 +19,7 @@ export default function StartScreen({ setPage }) {
         <div className="animation-wrapper slide-up">
           <button
             className="big slide-up"
-            onClick={() => setPage("keyword-form")}
+            onClick={() => setPage("keywords")}
           >
             Make a poem, please!
           </button>

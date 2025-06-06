@@ -66,9 +66,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid keywords format' });
   }
 
-  try {
-    console.log("Received keywords:", keywords);
-    
+  try {    
     const keywordsString = keywords.join(', ');
 
     const msg = await anthropic.messages.create({
@@ -88,7 +86,5 @@ export default async function handler(req, res) {
     console.error(error);
     res.status(500).json({ error: 'Failed to generate a poem' });
   }
-
-  console.log("API KEY:", process.env.ANTHROPIC_API_KEY); // Don't leave this in production
   console.log("REQUEST BODY:", req.body);
 }

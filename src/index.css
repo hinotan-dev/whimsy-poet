@@ -71,6 +71,8 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
+  padding: 0 20px;
+  width: calc(100vw - 40px);
 }
 
 h1 {
@@ -134,7 +136,9 @@ button.round {
   --shadowDistance: 20px;
 }
 
-button:hover, button:active {
+button.big:hover, button.big:active,
+button.medium:hover, button.medium:active,
+button.round:hover, button.round:active {
   transform: rotate(2deg);
   box-shadow: 0 var(--shadowDistance) 30px rgba(0, 0, 0, 0.15);
 }

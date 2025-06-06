@@ -6,15 +6,21 @@ import ThinkingScreen from './components/ThinkingScreen'
 import DisplayPoem from './components/DisplayPoem'
 import LibraryScreen from './components/LibraryScreen'
 
-import { capitalizeFirstLetter } from './utils.js';
+import { capitalizeFirstLetter, getFirstChar, getRandomItem } from './utils.js';
 
 
 export default function App() {
   
   const [page, setPage] = React.useState("library");
-  // const [keywords, setKeywords] = React.useState([]);
-  const [keywords, setKeywords] = React.useState(["Red river", "Upside-down house", "Rainbow but only yellow color"]); // For testing purposes
-  const [poem, setPoem] = React.useState("");
+  const [keywords, setKeywords] = React.useState([]);
+  // For example:
+  // const [keywords, setKeywords] = React.useState(["Red river", "Upside-down house", "Rainbow but only yellow color"]); // For testing purposes
+  const [poem, setPoem] = React.useState({
+    poemMarkdown: "",
+    coverChar: "",
+    coverImg: "",
+    id: ""
+  });
 
   function addKeyword(formData) {
     const newKeyword = capitalizeFirstLetter(formData.get("keyword").trim());
@@ -36,10 +42,18 @@ export default function App() {
     // Call AI API to process keywords
     try {
       const poemMarkdown = await generatePoem(keywords);
-
       console.log("Generated poem:", poemMarkdown);
-      setPage("poem")
-      setPoem(poemMarkdown);
+
+      const coverChar = getFirstChar(poemMarkdown);
+      const coverImg = getRandomItem(['yellow', 'blue', 'red', 'green', 'yellow2', 'blue2', 'red2', 'green2']);
+
+      setPage("poem");
+      setPoem({
+        poemMarkdown: poemMarkdown,
+        coverChar: coverChar,
+        coverImg: coverImg,
+        id: `poem_${Date.now()}`
+      });
     } catch (err) {
       console.error(err);
       alert("Sorry, I couldn't generate a poem at this time. Please try again.");
@@ -66,14 +80,23 @@ export default function App() {
       {page === "start" ? (
         <StartScreen
           setPage={setPage}
-          onStart={() => setPage("keyword-form")}
+          onStart={() => setPage("keywords")}
         />
-      ) : page === "keyword-form" ? (
+      ) : page === "keywords" ? (
         <KeywordForm
           keywords={keywords}
           addKeyword={addKeyword}
           setKeywords={setKeywords}
           submitKeywords={submitKeywords}
+          status="new"
+        />
+      ) : page === "keywords-repopulated" ? (
+        <KeywordForm
+          keywords={keywords}
+          addKeyword={addKeyword}
+          setKeywords={setKeywords}
+          submitKeywords={submitKeywords}
+          status="repopulated"
         />
       ) : page === "thinking" ? (
         <ThinkingScreen
@@ -84,6 +107,14 @@ export default function App() {
           poem={poem}
           keywords={keywords}
           setPage={setPage}
+          status="new"
+        />
+      ) : page === "poem-from-library" ? (
+        <DisplayPoem
+          poem={poem}
+          keywords={keywords}
+          setPage={setPage}
+          status="from-library"
         />
       ) : page === "library" ? (
         <LibraryScreen
