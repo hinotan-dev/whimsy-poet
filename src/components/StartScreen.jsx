@@ -1,9 +1,10 @@
+import { motion } from "motion/react";
 import heroImgBook from '../assets/hero-book.png';
 import heroImgDance from '../assets/hero-dance.png';
 import heroImgHat from '../assets/hero-hat.png';
 import heroImgMagic from '../assets/hero-magic.png';
 
-export default function StartScreen({ onStart }) {
+export default function StartScreen({ setPage }) {
   return (
     <>
       <div className="start-screen">
@@ -15,7 +16,14 @@ export default function StartScreen({ onStart }) {
             <img src={heroImgMagic} alt="a magic wand" />
           </div>
         </div>
-        <button className="big" onClick={onStart}>Make a poem, please!</button>
+        <div className="animation-wrapper slide-up">
+          <button
+            className="big slide-up"
+            onClick={() => setPage("keyword-form")}
+          >
+            Make a poem, please!
+          </button>
+        </div>
       </div>
       <footer>
         <p>

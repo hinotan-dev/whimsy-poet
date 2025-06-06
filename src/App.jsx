@@ -3,14 +3,17 @@ import './App.css'
 import StartScreen from './components/StartScreen'
 import KeywordForm from './components/KeywordForm'
 import ThinkingScreen from './components/ThinkingScreen'
+import DisplayPoem from './components/DisplayPoem'
+import LibraryScreen from './components/LibraryScreen'
 
 import { capitalizeFirstLetter } from './utils.js';
 
 
 export default function App() {
   
-  const [page, setPage] = React.useState("start");
-  const [keywords, setKeywords] = React.useState([]);
+  const [page, setPage] = React.useState("library");
+  // const [keywords, setKeywords] = React.useState([]);
+  const [keywords, setKeywords] = React.useState(["Red river", "Upside-down house", "Rainbow but only yellow color"]); // For testing purposes
   const [poem, setPoem] = React.useState("");
 
   function addKeyword(formData) {
@@ -33,6 +36,8 @@ export default function App() {
     // Call AI API to process keywords
     try {
       const poemMarkdown = await generatePoem(keywords);
+
+      console.log("Generated poem:", poemMarkdown);
       setPage("poem")
       setPoem(poemMarkdown);
     } catch (err) {
@@ -60,12 +65,14 @@ export default function App() {
     <>
       {page === "start" ? (
         <StartScreen
+          setPage={setPage}
           onStart={() => setPage("keyword-form")}
         />
       ) : page === "keyword-form" ? (
         <KeywordForm
           keywords={keywords}
           addKeyword={addKeyword}
+          setKeywords={setKeywords}
           submitKeywords={submitKeywords}
         />
       ) : page === "thinking" ? (
@@ -73,12 +80,17 @@ export default function App() {
           keywords={keywords}
         />
       ) : page === "poem" ? (
-        <div className="poem-screen">
-          <div className="poem-content" dangerouslySetInnerHTML={{ __html: poem }} />
-          <button className="button-back" onClick={() => setPage("keyword-form")}>
-            Back to Keywords
-          </button>
-        </div>
+        <DisplayPoem
+          poem={poem}
+          keywords={keywords}
+          setPage={setPage}
+        />
+      ) : page === "library" ? (
+        <LibraryScreen
+          setPoem={setPoem}
+          setKeywords={setKeywords}
+          setPage={setPage}
+        />
       ) : null}
     </>
   )

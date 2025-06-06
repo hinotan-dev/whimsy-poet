@@ -39,9 +39,39 @@
   100% { opacity: 0; transform: rotateY(180deg); }
 }
 
+.animation-wrapper.slide-up {
+  animation: slideUp 0.6s ease forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }  
+}
+
 /* Keyword Form */
-.talking-creature {
+.keyword-form-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.talking-creature-wrapper {
   width: 370px;
+}
+.talking-creature-wrapper img {
+  width: 100%;
+  height: auto;
 }
 
 .add-keyword-form {
@@ -80,7 +110,7 @@
   color: var(--cream);
   border-radius: 1000px;
   padding: 5px 40px 5px 15px;
-  margin: 0 5px;
+  margin: 5px;
   display: inline-block;
   position: relative;
   transition: all 0.25s ease-in-out;
@@ -97,7 +127,7 @@
 }
 
 .button-make-poem {
-  position: absolute;
+  position: fixed;
   bottom: 100px;
   right: 100px;
 }
@@ -110,4 +140,78 @@
 .thinking-screen .hero {
   width: 250px;
   margin: 20px auto;
+}
+
+/* Display Poem */
+.poem-screen {
+  display: flex;
+  gap: 24px;
+}
+
+.poem-content {
+  text-align: left;
+}
+.poem-content h1 {
+  font-family: "Spectral", sans-serif;
+  max-width: 480px;
+}
+.book-cover {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 270px;
+  height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-image: url(./assets/book-yellow.png);
+}
+.book-cover.yellow {
+  background-image: url(./assets/book-yellow.png);
+}
+.book-cover.yellow2 {
+  background-image: url(./assets/book-yellow-2.png);
+}
+.book-cover.blue {
+  background-image: url(./assets/book-blue.png);
+}
+.book-cover.blue2 {
+  background-image: url(./assets/book-blue-2.png);
+}
+.book-cover.red {
+  background-image: url(./assets/book-red.png);
+}
+.book-cover.red2 {
+  background-image: url(./assets/book-red-2.png);
+}
+.book-cover.green {
+  background-image: url(./assets/book-green.png);
+}
+.book-cover.green2 {
+  background-image: url(./assets/book-green-2.png);
+}
+
+
+.book-cover span {
+  font-size: 6rem;  /* 96px */
+  position: relative;
+  bottom: 16px;
+  left: 12px;
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 20px;
+  margin-block: 40px;
+}
+
+button.love {
+  background: var(--yellow) url(./assets/icon-heart.png) no-repeat 15px center;
+  background-size: 40px;
+  padding: 8px 30px 8px 70px;
+}
+button.retry {
+  background: var(--cream) url(./assets/icon-sad.png) no-repeat 15px center;
+  background-size: 40px;
+  padding: 8px 30px 8px 70px;
 }

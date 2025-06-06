@@ -1,8 +1,10 @@
 import React from 'react';
+import { motion } from "motion/react";
+
 import imgTalking from '../assets/talking.png';
 import imgTalking2 from '../assets/talking-2.png';
 
-export default function KeywordForm({ keywords, addKeyword, submitKeywords }) {
+export default function KeywordForm({ keywords, addKeyword, setKeywords, submitKeywords }) {
 
   const [inputValue, setInputValue] = React.useState("");
 
@@ -60,10 +62,14 @@ export default function KeywordForm({ keywords, addKeyword, submitKeywords }) {
       )}
       
       {keywords.length === 0 ? (
-        <img className="talking-creature" src={imgTalking} alt="a creature talking" />
+        <div className="talking-creature-wrapper">
+          <img className="talking-creature" src={imgTalking} alt="a creature talking" />
+        </div>
       ) : (
         <>
-          <img className="talking-creature" src={imgTalking2} alt="a creature talking with eyes open" />
+          <div className="talking-creature-wrapper eyes-open">
+            <img className="talking-creature" src={imgTalking2} alt="a creature talking with eyes open" />
+          </div>
           <button className="button-make-poem round" onClick={() => submitKeywords(keywords)}>Make a poem now</button>
         </>
       )}
