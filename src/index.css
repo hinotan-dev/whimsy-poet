@@ -95,7 +95,7 @@ body {
 }
 
 @media (max-width: 767px) {
-  .screen {
+  .screen:not(.start-screen) {
     margin-top: 60px;
   }
 }
