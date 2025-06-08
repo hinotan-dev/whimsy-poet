@@ -1,17 +1,19 @@
 import React from 'react'
 import './App.css'
 import StartScreen from './components/StartScreen'
-import KeywordForm from './components/KeywordForm'
+import KeywordScreen from './components/KeywordScreen.jsx'
 import ThinkingScreen from './components/ThinkingScreen'
-import DisplayPoem from './components/DisplayPoem'
+import PoemScreen from './components/PoemScreen.jsx'
 import LibraryScreen from './components/LibraryScreen'
+import AboutScreen from './components/AboutScreen'
+import Menu from './components/Menu.jsx'
 
 import { capitalizeFirstLetter, getFirstChar, getRandomItem } from './utils.js';
 
 
 export default function App() {
   
-  const [page, setPage] = React.useState("library");
+  const [page, setPage] = React.useState("start");
   const [keywords, setKeywords] = React.useState([]);
   // For example:
   // const [keywords, setKeywords] = React.useState(["Red river", "Upside-down house", "Rainbow but only yellow color"]); // For testing purposes
@@ -83,45 +85,67 @@ export default function App() {
           onStart={() => setPage("keywords")}
         />
       ) : page === "keywords" ? (
-        <KeywordForm
-          keywords={keywords}
-          addKeyword={addKeyword}
-          setKeywords={setKeywords}
-          submitKeywords={submitKeywords}
-          status="new"
-        />
+        <>
+          <Menu setPage={setPage} />
+          <KeywordScreen
+            keywords={keywords}
+            addKeyword={addKeyword}
+            setKeywords={setKeywords}
+            submitKeywords={submitKeywords}
+            status="new"
+          />
+        </>
       ) : page === "keywords-repopulated" ? (
-        <KeywordForm
-          keywords={keywords}
-          addKeyword={addKeyword}
-          setKeywords={setKeywords}
-          submitKeywords={submitKeywords}
-          status="repopulated"
-        />
+        <>
+          <Menu setPage={setPage} />
+          <KeywordScreen
+            keywords={keywords}
+            addKeyword={addKeyword}
+            setKeywords={setKeywords}
+            submitKeywords={submitKeywords}
+            status="repopulated"
+          />
+        </>
       ) : page === "thinking" ? (
         <ThinkingScreen
           keywords={keywords}
         />
       ) : page === "poem" ? (
-        <DisplayPoem
-          poem={poem}
-          keywords={keywords}
-          setPage={setPage}
-          status="new"
-        />
+        <>
+          <Menu setPage={setPage} />
+          <PoemScreen
+            poem={poem}
+            keywords={keywords}
+            setPage={setPage}
+            status="new"
+          />
+        </>
       ) : page === "poem-from-library" ? (
-        <DisplayPoem
-          poem={poem}
-          keywords={keywords}
-          setPage={setPage}
-          status="from-library"
-        />
+        <>
+          <Menu setPage={setPage} />
+          <PoemScreen
+            poem={poem}
+            keywords={keywords}
+            setPage={setPage}
+            status="from-library"
+          />
+        </>
       ) : page === "library" ? (
-        <LibraryScreen
-          setPoem={setPoem}
-          setKeywords={setKeywords}
-          setPage={setPage}
-        />
+        <>
+          <Menu setPage={setPage} />
+          <LibraryScreen
+            setPoem={setPoem}
+            setKeywords={setKeywords}
+            setPage={setPage}
+          />
+        </>
+      ) : page === "about" ? (
+        <>
+          <Menu setPage={setPage} />
+          <AboutScreen
+            setPage={setPage}
+          />
+        </>
       ) : null}
     </>
   )

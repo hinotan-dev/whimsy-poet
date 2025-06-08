@@ -17,7 +17,7 @@ export default function ThinkingScreen({ keywords}) {
 
 
   return (
-    <div className="thinking-screen">
+    <div className="screen thinking-screen">
       <h1>Thinking hard...</h1>
       <img className="hero" src={heroImgMagic} alt="a magic wand" />
       <div className="keywords-list scrolling-container">

@@ -1,6 +1,9 @@
 import { Anthropic } from '@anthropic-ai/sdk';
 import dotenv from 'dotenv';
-dotenv.config({ path: '.env.local' }); // explicitly load .env.local
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: '.env.local' });
+}
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,

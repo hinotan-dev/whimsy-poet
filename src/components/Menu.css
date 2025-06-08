@@ -1,0 +1,55 @@
+header.menu-header {
+  position: fixed;
+  z-index: 1000;
+}
+
+.menu-icon {
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+}
+.menu-icon img {
+  transition: all 0.25s ease-in-out;
+}
+.menu-icon:hover img {
+  transform: scale(1.05);
+}
+
+.display-menu {
+  position: fixed;
+  background: #F7F2E4 url(../assets/paper-texture-bg.jpg) repeat;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.display-menu .icons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 50px;
+}
+
+.display-menu .icons-wrapper .icon {
+  cursor: pointer;
+}
+.display-menu .icons-wrapper .icon:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+}
+.display-menu .icons-wrapper .icon img {
+  width: 200px;
+  height: 200px;
+  transition: all 0.25s ease-in-out;
+}
+
+.display-menu .icons-wrapper .icon span {
+  display: block;
+  text-align: center;
+  font-size: 3rem; /* 40px */
+  font-family: "Kirang Haerang", system-ui;
+}

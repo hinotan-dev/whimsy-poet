@@ -29,7 +29,7 @@ export default function LibraryScreen({ setPoem, setKeywords, setPage }) {
   }
 
   return (
-    <div className="library-screen">    
+    <div className="screen library-screen">    
       <h1>Library</h1>
       {storedPoems.length === 0 && (
         <p>Seems like you haven't saved any poems yet.</p>

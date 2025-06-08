@@ -1,12 +1,13 @@
-# React + Vite
+## 🪄 WhimsyPoet: A Whimsical Poem Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**WhimsyPoet** is a playful web app that lets kids (and grown-ups!) create whimsical poems from their own imagination. Simply enter a few keywords — like *pink sky*, *upside-down house*, or *flying popcorns* — and the app will generate a rhythmic, rhyming verse full of childlike wonder.
 
-Currently, two official plugins are available:
+✨ Features:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* 🎨 Keyword-based poem generation powered by AI
+* 📝 Rhythm and rhyme inspired by classic children’s books like those by Dr. Seuss
+* 📚 A personal poem "Library" saved in localStorage
+* 📖 Clickable "book covers" showing the first letter of each poem
+* 💾 No login, no cloud — your poems stay safely on your device
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Built with **React** and lots of love, this project explores how technology and creativity can come together to spark joy and storytelling, one silly stanza at a time.

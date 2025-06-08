@@ -56,7 +56,7 @@
   }  
 }
 
-/* Keyword Form */
+/* Keyword Screen */
 .keyword-form-screen {
   display: flex;
   flex-direction: column;
@@ -148,10 +148,12 @@
   margin: 20px auto;
 }
 
-/* Display Poem */
-.poem-screen {
+/* Poem Screen */
+.poem-wrapper {
   display: flex;
   gap: 24px;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .poem-content {
@@ -203,10 +205,27 @@
 
 .book-cover span {
   font-size: 6rem;  /* 96px */
+  font-weight: 800;
   position: relative;
   bottom: 16px;
   left: 12px;
 }
+
+/* Responsive size */
+/* .book-cover {
+  width: 25vw;
+  height: 25vw;
+  max-width: 270px;
+  max-height: 270px;
+}
+.book-cover span {
+  font-size: 9vw;
+  font-size: clamp(4rem, 9vw, 6rem);
+  font-weight: 800;
+  position: relative;
+  bottom: 1.3vw;
+  left: 1.7vw;
+} */
 
 .button-wrapper {
   display: flex;
@@ -232,8 +251,8 @@ button.retry {
   padding: 8px 30px 8px 70px;
 }
 button.books {
-  background: var(--cream) url(./assets/icon-books.png) no-repeat 15px center;
-  background-size: 46px;
+  background: var(--cream) url(./assets/icon-books-2.png) no-repeat 15px center;
+  background-size: 48px;
   padding: 8px 30px 8px 70px;
 }
 button.edit {
@@ -250,6 +269,7 @@ button.delete {
 /* Library Screen */
 
 .poems-list {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -258,14 +278,14 @@ button.delete {
 /* Tablet: 2 columns */
 @media (min-width: 768px) {
   .poems-list {
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-/* Desktop: 3 columns */
+/* Desktop: 3 and more columns */
 @media (min-width: 1024px) {
   .poems-list {
-    
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   }
 }
 
@@ -277,20 +297,33 @@ button.delete {
   margin-bottom: 20px;
 }
 .poem-item .book-cover {
-  width: 200px;
-  height: 200px;
+  width: 160px;
+  height: 160px;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
 .poem-item .book-cover:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3))
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
 }
 .poem-item .book-cover span {
-  font-size: 5rem; /* 80px */
+  font-size: 4rem; /* 64px */
   position: relative;
-  bottom: 14px;
+  bottom: 10px;
   left: 8px;
+}
+
+/* Desktop: 3 and more columns */
+@media (min-width: 1024px) {
+  .poem-item .book-cover {
+    width: 200px;
+    height: 200px;
+  }
+  .poem-item .book-cover span {
+    font-size: 5rem; /* 80px */
+    bottom: 14px;
+    left: 8px;
+  }
 }
 
 .poem-item .poem-info {
