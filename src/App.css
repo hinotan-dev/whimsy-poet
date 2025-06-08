@@ -334,3 +334,25 @@ button.delete {
   font-weight: 800;
   line-height: 1.1;
 }
+
+/* About Screen */
+.about-screen p {
+  max-width: 800px;
+  margin: 0 0 20px 0;
+}
+.about-screen p strong {
+  color: var(--red);
+  font-weight: 500;
+}
+
+.about-screen .keyword {
+  background-color: var(--blue);
+  color: var(--cream);
+  border-radius: 1000px;
+  padding: 0 12px;
+  display: inline-block;
+  font-style: normal;
+}
+.about-screen button {
+  margin-top: 50px;
+}
