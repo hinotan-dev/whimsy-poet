@@ -139,6 +139,7 @@ input.big-input:focus {
 @media screen and (min-width: 768px) {
   input.big-input {
     padding: 0 1.25rem;
+    width: auto;
     height: 5.625rem; /* 90px */
     min-width: 25rem; /* 400px */
     font-size: 2.5rem; /* 40px */

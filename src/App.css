@@ -112,7 +112,7 @@
     padding-right: 5.625rem; /* 90px */
   }
   .add-keyword-form button {
-    display: block;
+    display: flex;
   }
 }
 
