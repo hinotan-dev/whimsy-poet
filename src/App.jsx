@@ -25,16 +25,21 @@ export default function App() {
   });
 
   function addKeyword(formData) {
-    const newKeyword = capitalizeFirstLetter(formData.get("keyword").trim());
+    const rawKeyword = formData.get("keyword");
+    if (!rawKeyword) {
+      alert("Please enter a keyword.");
+      return false;
+    }
 
+    const newKeyword = capitalizeFirstLetter(rawKeyword.trim());
     if (!newKeyword) {
-      alert('Please enter a valid keyword.');
-      return;
+      alert("Please enter a valid keyword.");
+      return false;
     }
 
     console.log(`Keyword added: ${newKeyword}`);
-
     setKeywords(prev => [...prev, newKeyword]);
+    return true;
   }
 
   async function submitKeywords(keywords) {

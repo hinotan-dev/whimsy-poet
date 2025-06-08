@@ -12,9 +12,16 @@ export default function KeywordScreen({ keywords, addKeyword, setKeywords, submi
     setInputValue(event.target.value);
   }
 
-  function handleKeywordSubmit(formData) {
-    addKeyword(formData);
-    setInputValue(""); // Clear the input after adding
+  function handleKeywordSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const success = addKeyword(formData);
+
+    if (success) {
+      setInputValue("");
+      form.reset(); // Optional: resets form fields to initial values
+    }
   }
 
   return (
@@ -31,7 +38,7 @@ export default function KeywordScreen({ keywords, addKeyword, setKeywords, submi
         </h1>
       ) : null}
       
-      <form action={handleKeywordSubmit} className="add-keyword-form">
+      <form onSubmit={handleKeywordSubmit} className="add-keyword-form">
         <input
           type="text"
           name="keyword"
