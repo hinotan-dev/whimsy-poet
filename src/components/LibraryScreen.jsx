@@ -39,11 +39,9 @@ export default function LibraryScreen({ setPoem, setKeywords, setPage }) {
           <div
             key={poem.id}
             className="poem-item"
+            onClick={() => handlePoemClick(poem)}
           >
-            <div
-              className={`book-cover ${poem.coverImg}`}
-              onClick={() => handlePoemClick(poem)}
-            >
+            <div className={`book-cover ${poem.coverImg}`}>
               <span>{poem.coverChar}</span>
             </div>
             <div className="poem-info">

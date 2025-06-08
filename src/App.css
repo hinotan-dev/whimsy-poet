@@ -322,14 +322,14 @@ button.delete {
   display: flex;
   align-items: center;
   gap: 0;
+  cursor: pointer;
 }
 .poem-item .book-cover {
   width: 160px;
   height: 160px;
-  cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
-.poem-item .book-cover:hover {
+.poem-item:hover .book-cover {
   transform: scale(1.05);
   filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
 }
