@@ -68,6 +68,7 @@ export default function KeywordScreen({ keywords, addKeyword, setKeywords, submi
             ))}
           </div>
           <p>Once done, hit the “Make” button and enjoy your poem!</p>
+          <button className="button-make-poem-mobile big hide-tablet-up" onClick={() => submitKeywords(keywords)}>Make a poem now</button>
         </>
       ) : (
         <p>
@@ -85,7 +86,7 @@ export default function KeywordScreen({ keywords, addKeyword, setKeywords, submi
           <div className="talking-creature-wrapper eyes-open">
             <img className="talking-creature" src={imgTalking2} alt="a creature talking with eyes open" />
           </div>
-          <button className="button-make-poem round" onClick={() => submitKeywords(keywords)}>Make a poem now</button>
+          <button className="button-make-poem round hide-mobile" onClick={() => submitKeywords(keywords)}>Make a poem now</button>
         </>
       )}
     </div>

@@ -6,15 +6,25 @@ header.menu-header {
 .menu-icon {
   cursor: pointer;
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 1.25rem; /* 20px */
+  left: 1.25rem; /* 20px */
   z-index: 1001;
 }
 .menu-icon img {
+  display: block;
   transition: all 0.25s ease-in-out;
+  width: 50px;
+  height: 50px;
 }
 .menu-icon:hover img {
   transform: scale(1.05);
+}
+
+@media screen and (min-width: 768px) {
+  .menu-icon img {
+    width: 5.625rem; /* 90px */
+    height: 5.625rem; /* 90px */
+  }
 }
 
 .display-menu {
@@ -52,4 +62,18 @@ header.menu-header {
   text-align: center;
   font-size: 3rem; /* 40px */
   font-family: "Kirang Haerang", system-ui;
+}
+
+@media screen and (max-width: 767px) {
+  .display-menu .icons-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .display-menu .icons-wrapper .icon img {
+    width: 100px;
+    height: 100px;
+  }
+  .display-menu .icons-wrapper .icon span {
+    font-size: 2rem;
+  }
 }

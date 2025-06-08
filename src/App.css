@@ -68,6 +68,7 @@
 
 .talking-creature-wrapper {
   width: 370px;
+  max-width: calc(100% - 60px);
 }
 .talking-creature-wrapper img {
   width: 100%;
@@ -76,25 +77,24 @@
 
 .add-keyword-form {
   position: relative;
-  width: 530px;
   margin: 0 auto;
 }
 .add-keyword-form input {
-  padding-right: 90px;
   color: var(--blue);
 }
 .add-keyword-form button {
   position: absolute;
   right: 0;
   top: 0;
-  width: 90px;
-  height: 90px;
+  width: 5.625rem; /* 90px */
+  height: 5.625rem; /* 90px */
   font-size: 8rem;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
+  display: none;
 }
 .add-keyword-form button span {
   position: relative;
@@ -105,6 +105,15 @@
   background-color: var(--cream);
   cursor: not-allowed;
   box-shadow: none;
+}
+
+@media (min-width: 768px) {
+  .add-keyword-form input {
+    padding-right: 5.625rem; /* 90px */
+  }
+  .add-keyword-form button {
+    display: block;
+  }
 }
 
 .keywords-list {
@@ -125,10 +134,12 @@
 .keywords-list .remove-keyword {
   cursor: pointer;
   font-family: "Kirang Haerang", system-ui;
-  font-size: 3rem;
+  font-size: 48px;
+  line-height: 0;
   position: absolute;
-  top: -10px;
+  top: 50%;
   right: 15px;
+  margin-top: 3px;
   color: var(--yellow);
 }
 
@@ -136,6 +147,10 @@
   position: fixed;
   bottom: 100px;
   right: 100px;
+}
+
+.button-make-poem-mobile {
+  margin-block: 1.25rem; /* 20px */
 }
 
 /* Thinking Screen */
@@ -149,16 +164,18 @@
 }
 
 /* Poem Screen */
-.poem-wrapper {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  flex-direction: row;
+@media screen and (min-width: 768px) {
+  .poem-wrapper {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .poem-content {
+    text-align: left;
+  }
 }
 
-.poem-content {
-  text-align: left;
-}
 .poem-content h1 {
   font-family: "Spectral", sans-serif;
   max-width: 480px;
@@ -173,6 +190,7 @@
   justify-content: center;
   flex-shrink: 0;
   background-image: url(./assets/book-yellow.png);
+  margin: 0 auto;
 }
 .book-cover.yellow {
   background-image: url(./assets/book-yellow.png);
@@ -228,9 +246,19 @@
 } */
 
 .button-wrapper {
-  display: flex;
-  gap: 20px;
   margin-block: 40px;
+}
+.button-wrapper button {
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 768px) {
+  .button-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+  .button-wrapper button {
+    margin-bottom: 0;
+  }
 }
 
 button.love {
@@ -294,7 +322,6 @@ button.delete {
   display: flex;
   align-items: center;
   gap: 0;
-  margin-bottom: 20px;
 }
 .poem-item .book-cover {
   width: 160px;
@@ -335,6 +362,16 @@ button.delete {
   line-height: 1.1;
 }
 
+@media (max-width: 767px) {
+  .poem-item:nth-child(2n) {
+    flex-direction: row-reverse;
+  }
+  .poem-item:nth-child(2n) .poem-info {
+    text-align: right;
+  }
+}
+
+
 /* About Screen */
 .about-screen p {
   max-width: 800px;
@@ -352,7 +389,10 @@ button.delete {
   padding: 0 12px;
   display: inline-block;
   font-style: normal;
+  font-size: 1.3rem;
+  position: relative;
+  bottom: 1px;
 }
 .about-screen button {
-  margin-top: 50px;
+  margin-block: 40px;
 }

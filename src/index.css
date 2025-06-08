@@ -34,6 +34,7 @@
 
 :root {
   font-family: "Spectral", serif;
+  font-size: 14px;
   line-height: 1.5;
   font-weight: 500;
   color: #000000;
@@ -48,6 +49,13 @@
   --blue: #029AB6;
   --grey: #93B2B8;
   --cream: #F7F2E4;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  :root {
+    font-size: 16px;
+  }
 }
 
 a {
@@ -86,6 +94,12 @@ body {
   align-items: center;
 }
 
+@media (max-width: 767px) {
+  .screen {
+    margin-top: 60px;
+  }
+}
+
 footer {
   padding: 10px;
 }
@@ -108,11 +122,10 @@ p {
 
 input.big-input {
   font-family: "Kirang Haerang", system-ui;
-  font-size: 2.5rem; /* 40px */
+  font-size: 28px;
   text-align: center;
-  padding: 0 20px;
-  min-width: 400px;
-  height: 90px;
+  width: calc(100vw - 40px);
+  height: 60px;
   border: 4px solid #000000;
   border-radius: 1000px;
   background-color: #ffffff;
@@ -123,12 +136,22 @@ input.big-input:focus {
   outline: none;
 }
 
+@media screen and (min-width: 768px) {
+  input.big-input {
+    padding: 0 1.25rem;
+    height: 5.625rem; /* 90px */
+    min-width: 25rem; /* 400px */
+    font-size: 2.5rem; /* 40px */
+  }
+}
+
 button {
   position: relative;
   border-radius: 1000px;
   border: 4px solid #000000;
   background-color: var(--yellow);
   cursor: pointer;
+  color: #000000;
   transition: all 0.25s ease-in-out;
   font-family: "Kirang Haerang", system-ui;
   font-size: 2.5rem; /* 40px */
@@ -140,8 +163,8 @@ button.big {
   font-size: 2.5rem; /* 40px */
   background-color: var(--yellow);
   padding: 0;
-  width: 400px;
-  height: 90px;
+  width: 25rem; /* 400px */
+  height: 5.625rem; /* 90px */
   --shadowDistance: 20px;
 }
 
@@ -164,3 +187,14 @@ button.round:hover, button.round:active {
   box-shadow: 0 var(--shadowDistance) 30px rgba(0, 0, 0, 0.15);
 }
 
+/* Responsive */
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .hide-tablet-up {
+    display: none !important;
+  }
+}
