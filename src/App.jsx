@@ -114,9 +114,12 @@ export default function App() {
           />
         </>
       ) : page === "thinking" ? (
-        <ThinkingScreen
-          keywords={keywords}
-        />
+        <>
+          <Menu setPage={setPage} />
+          <ThinkingScreen
+            keywords={keywords}
+          />
+        </>
       ) : page === "poem" ? (
         <>
           <Menu setPage={setPage} />
