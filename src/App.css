@@ -86,15 +86,16 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 5.625rem; /* 90px */
-  height: 5.625rem; /* 90px */
-  font-size: 8rem;
+  width: 60px;
+  height: 60px;
+  font-size: 6rem;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  display: none;
+  display: flex;
+  /* display: none; */
 }
 .add-keyword-form button span {
   position: relative;
@@ -112,6 +113,9 @@
     padding-right: 5.625rem; /* 90px */
   }
   .add-keyword-form button {
+    width: 5.625rem; /* 90px */
+    height: 5.625rem; /* 90px */
+    font-size: 8rem;
     display: flex;
   }
 }
@@ -151,6 +155,7 @@
 
 .button-make-poem-mobile {
   margin-block: 1.25rem; /* 20px */
+  width: 100% !important;
 }
 
 /* Thinking Screen */
