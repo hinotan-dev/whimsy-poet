@@ -17,14 +17,14 @@ A playful poem generator inspired by the rhythm and whimsy of classic childrenâ€
 - [x] Add delete button to remove saved poems
 - [x] Allow user to view and edit keywords from saved poems
 - [x] Basic screen/page switching (without router)
+- [x] Add site menu icons
+- [x] Make the site compatible on mobile/iPad
+- [x] Add Info/About page
 
 ---
 
 ## ðŸ§ª In Progress / Ideas to Explore
 
-- [ ] Add site menu icons
-- [ ] Make the site compatible on mobile/iPad
-- [ ] Add Info/About page
 - [ ] Visualize rhythm ("da-DUM" beats)
 - [ ] Share poem (image or `.md` download)
 - [ ] Handle duplicate keywords more gracefully
