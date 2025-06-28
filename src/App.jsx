@@ -63,6 +63,8 @@ export default function App() {
       });
     } catch (err) {
       console.error(err);
+
+      // [TODO] Handle error gracefully, e.g. allow user to go back to keywords screen
       alert("Sorry, I couldn't generate a poem at this time. Please try again.");
     }
   }
